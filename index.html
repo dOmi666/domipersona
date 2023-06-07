@@ -19,7 +19,7 @@
 var button=function(){
 var inputgb=parseInt(document.getElementById("inputgb").value)
 var inputhiz=parseInt(document.getElementById("inputhiz").value)
-var suredk=((inputgb*10.24))/((inputhiz*1.25)*60*1000)
+var suredk=((inputgb*1000*10.24))/((inputhiz*1.25)*60*)
 var suresaat=suredk/60
 
 document.getElementById("000").innerHTML=Math.round(suredk*100)/100+"min"
