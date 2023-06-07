@@ -3,7 +3,7 @@
 <title>volkan</title>
 </head>
 <body>
-<input id="inputmb" placeholder="Dosya Boyutu MB" type="text">
+<input id="inputgb" placeholder="Dosya Boyutu GB" type="text">
 <input id="inputhiz" placeholder="Internet Hızı Mbit" type="text">
 <button onclick="button()">ok</button>
 <p id="000">
@@ -17,9 +17,9 @@
 <script>
 
 var button=function(){
-var inputmb=parseInt(document.getElementById("inputmb").value)
+var inputmb=parseInt(document.getElementById("inputgb").value)
 var inputhiz=parseInt(document.getElementById("inputhiz").value)
-var suredk=((inputmb*10.24))/((inputhiz*1.25)*60)
+var suredk=((inputgb*10.24))/((inputhiz*1.25)*60*1000)
 var suresaat=suredk/60
 
 document.getElementById("000").innerHTML=Math.round(suredk*100)/100+"min"
