@@ -1,30 +1,62 @@
-﻿<html>
+<!DOCTYPE html>
+<html>
 <head>
-<title>volkan</title>
+    <title>Indirme Süre Hesaplayıcı</title>
+    <style>
+        body {
+            background-color: #171717; /* Change this to any color you like */
+            font-family: Bahnschrift, sans-serif; /* Default font family */
+        }
+        input[type="text"] {
+            width: 480px;
+            height: 90px;
+            font-size: 52px; /* Adjust the font size if necessary */
+            font-family: inherit; /* Use the same font as the body */
+        }
+        button {
+            width: 120px;
+            height: 90px;
+            font-size: 24px; /* Adjust the font size if necessary */
+            font-family: inherit; /* Use the same font as the body */
+        }
+        select {
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        p {
+            font-size: 36px; /* Increase font size for the paragraphs */
+            color: #ffffff; /* Change font color to white */
+            font-family: inherit; /* Use the same font as the body */
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
 </head>
 <body>
-<input id="inputgb" placeholder="Dosya Boyutu GB" type="text">
-<input id="inputhiz" placeholder="Internet Hızı Mbit" type="text">
-<button onclick="button()">ok</button>
-<p id="000">
+    <select id="fontSelector">
+        <option value="Bahnschrift, sans-serif">Bahnschrift</option>
+        <option value="'Roboto', sans-serif">Roboto</option>
+        <option value="'Lobster', cursive">Lobster</option>
+    </select>
+    <input id="inputgb" placeholder="Dosya Boyutu GB" type="text">
+    <input id="inputhiz" placeholder="Internet Hızı Mbit" type="text">
+    <button onclick="button()">Hesapla</button>
+    <p id="000"></p>
+    <p id="001"></p>
 
-</p>
-<p id="001">
+    <script>
+        document.getElementById('fontSelector').addEventListener('change', function() {
+            document.body.style.fontFamily = this.value;
+        });
 
-</p>
+        var button = function() {
+            var inputgb = parseInt(document.getElementById("inputgb").value);
+            var inputhiz = parseInt(document.getElementById("inputhiz").value);
+            var suredk = ((inputgb * 1000 * 10.24)) / ((inputhiz * 1.25) * 60);
+            var suresaat = suredk / 60;
 
+            document.getElementById("000").innerHTML = Math.round(suredk * 100) / 100 + " min";
+            document.getElementById("001").innerHTML = Math.round(suresaat * 100) / 100 + " h";
+        }
+    </script>
 </body>
-<script>
-
-var button=function(){
-var inputgb=parseInt(document.getElementById("inputgb").value)
-var inputhiz=parseInt(document.getElementById("inputhiz").value)
-var suredk=((inputgb*1000*10.24))/((inputhiz*1.25)*60)
-var suresaat=suredk/60
-
-document.getElementById("000").innerHTML=Math.round(suredk*100)/100+"min"
-document.getElementById("001").innerHTML=Math.round(suresaat*100)/100+"h"
-
-}
-</script>
 </html>
