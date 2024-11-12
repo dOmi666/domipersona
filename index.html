@@ -6,29 +6,34 @@
         body {
             display: flex;
             align-items: center;
-            background-color: #171717; /* Change this to any color you like */
-            font-family: Bahnschrift, sans-serif; /* Default font family */
+            flex-direction: column; /* Dikey hizalama için flex yönü */
+            background-color: #171717;
+            font-family: Bahnschrift, sans-serif;
         }
         input[type="text"] {
             width: 480px;
             height: 90px;
-            font-size: 52px; /* Adjust the font size if necessary */
-            font-family: inherit; /* Use the same font as the body */
+            font-size: 52px;
+            font-family: inherit;
+            margin-bottom: 20px;
         }
         button {
             width: 120px;
             height: 90px;
-            font-size: 24px; /* Adjust the font size if necessary */
-            font-family: inherit; /* Use the same font as the body */
+            font-size: 24px;
+            font-family: inherit;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
         select {
             margin-bottom: 20px;
             font-size: 20px;
         }
         p {
-            font-size: 36px; /* Increase font size for the paragraphs */
-            color: #ffffff; /* Change font color to white */
-            font-family: inherit; /* Use the same font as the body */
+            font-size: 36px;
+            color: #ffffff;
+            font-family: inherit;
+            display: block; /* Her bir paragrafı ayrı bir satıra yerleştirir */
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Lobster&display=swap" rel="stylesheet">
@@ -55,7 +60,6 @@
             var inputhiz = parseInt(document.getElementById("inputhiz").value);
             var suredk = ((inputgb * 1000 * 10.24)) / ((inputhiz * 1.25) * 60);
             var suresaat = suredk / 60;
-
             document.getElementById("000").innerHTML = Math.round(suredk * 100) / 100 + " min";
             document.getElementById("001").innerHTML = Math.round(suresaat * 100) / 100 + " h";
         }
